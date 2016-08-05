@@ -18,17 +18,27 @@ function createSpyButton() {
 function createSpy(){
   numberOfSpys++;
   $('.container').append("<div class ='spy' style='background-color: yellow'>" + numberOfSpys + "<button class ='change'>Change</button><button class ='delete'>Delete</button></div>");
-  // $('.container').children().last().data('id', numberOfSpys);
+   $('.container').children().last().data('id', 'yellow');
 }
 
 function deleteSpy(){
- $('.container').remove($(this));
+ $(this).parent().remove();
 }
 
 function changeStatus(){
-if($('container').children.css('background-color', 'yellow')){
-  $('container').children.css('background-color', 'red');
-}else{
-  $('container').children.css('background-color', 'yellow');
-}
+  if(($(this).parent().data('id'))=='yellow'){
+    $(this).parent().css('background-color', 'red');
+    $(this).parent().data('id', 'red');
+  }else{
+  $(this).parent().css('background-color', 'yellow');
+  $(this).parent().data('id', 'yellow');
+  }
+
+
+
+// if($(this).parent().css('background-color', 'yellow')){
+//   $(this).parent().css('background-color', 'red');
+// }else{
+//   $(this).parent().css('background-color', 'yellow');
+// }
 }
